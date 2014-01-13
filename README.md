@@ -1,6 +1,6 @@
 # syl20bnr theme
 
-Sylvain Benner personal, compact yet complete (almost :-)) fish prompt.
+Sylvain Benner personal, compact (hmmm...) yet complete (almost :-)) fish prompt.
 
 ## Segments
 
