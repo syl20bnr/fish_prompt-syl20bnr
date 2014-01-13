@@ -16,16 +16,20 @@ function toggle_right_prompt -d "Toggle the right prompt of the syl20bnr theme"
   end
 end
 
-function __syl20bnr_git_branch_name
+function __syl20bnr_git_branch_name -d "Return the current branch name"
   echo (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
 end
 
-function __syl20bnr_is_git_dirty
+function __syl20bnr_is_git_dirty -d "Check if there is uncommited changes"
   echo (command git status -s --ignore-submodules=dirty ^/dev/null)
 end
 
-function __syl20bnr_is_git_ahead
+function __syl20bnr_is_git_ahead -d "Check if there is unpushed commits"
   echo (command git status -s -b ^/dev/null | grep ahead)
+end
+
+function __syl20bnr_unpushed_commit_count -d "Return the number of unpushed commits"
+  git status -s -b ^/dev/null | grep -E -o "ahead\ [0-9]+" | awk '{print $2}'
 end
 
 # ----------------------------------------------------------------------------
@@ -69,7 +73,7 @@ function fish_prompt -d "Write out the left prompt of the syl20bnr theme"
   if test -n "$git_branch_name"
     set -l git_info ""
     if test -n (__syl20bnr_is_git_ahead)
-      set git_info $colbgreen"↑↑↑"
+      set git_info $colbgreen"↑↑↑"$colnormal"("(__syl20bnr_unpushed_commit_count)")"
     end
     if test -n (__syl20bnr_is_git_dirty)
       set git_info $git_info$colbred"·"
