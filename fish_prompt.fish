@@ -108,19 +108,19 @@ function fish_prompt -d "Write out the left prompt of the syl20bnr theme"
   #   X is either home or /
   #   P is the current working path basename (name of the current directory)
   #   C is the depth of the path starting from X
-  # If the pwd is home then the prompt format is simplified to home:~ without
-  # the depth.
+  # If the pwd is home or / then the prompt format is simplified to 'home' or
+  # '/' without the current directory and depth.
   set -l ps_pwd ""
   if test -z "$ps_git"
     set -l depth (echo (pwd) | cut -d "/" --output-delimiter=" " -f 1- | wc -w)
     set -l in_home (echo (pwd) | grep ~)
     if test -n "$in_home"
-      set ps_pwd $colbwhite"home:"
+      set ps_pwd $colbwhite"home"
     else
-      set ps_pwd $colbwhite"/:"
+      set ps_pwd $colbwhite"/"
     end
-    set ps_pwd $ps_pwd$colgreen$basedir_name
-    if test (echo (pwd)) != ~
+    if test (echo (pwd)) != ~ -a (echo (pwd)) != /
+      set ps_pwd $ps_pwd":"$colgreen$basedir_name
       if test -n "$in_home"
         set depth (math $depth - 2)
       end
