@@ -20,6 +20,10 @@ function __syl20bnr_git_branch_name -d "Return the current branch name"
   echo (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
 end
 
+function __syl20bnr_git_repo_name -d "Return the current repository name"
+  echo (command basename (git rev-parse --show-toplevel ^/dev/null))
+end
+
 function __syl20bnr_is_git_dirty -d "Check if there is uncommited changes"
   echo (command git status -s --ignore-submodules=dirty ^/dev/null)
 end
@@ -81,7 +85,7 @@ function fish_prompt -d "Write out the left prompt of the syl20bnr theme"
     if test -n (__syl20bnr_is_git_dirty)
       set git_info $git_info$colbred"·"
     end
-    set ps_git $colbwhite"git:"$colbcyan$git_branch_name$git_info$colnormal"@"$colbred(basename (prompt_pwd))
+    set ps_git $colbwhite"git:"$colbcyan$git_branch_name$git_info$colnormal"@"$colbred(__syl20bnr_git_repo_name)
   end
 
   # pwd
@@ -161,3 +165,4 @@ function fish_right_prompt -d "Write out the right prompt of the syl20bnr theme"
     echo -n -s $ps_where
   end
 end
+
