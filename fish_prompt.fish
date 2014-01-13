@@ -24,6 +24,10 @@ function __syl20bnr_git_repo_name -d "Return the current repository name"
   echo (command basename (git rev-parse --show-toplevel ^/dev/null))
 end
 
+function __syl20bnr_git_repo_base -d "Return the current repository name"
+  echo (command git rev-parse --show-toplevel ^/dev/null)
+end
+
 function __syl20bnr_is_git_dirty -d "Check if there is uncommited changes"
   echo (command git status -s --ignore-submodules=dirty ^/dev/null)
 end
@@ -48,6 +52,7 @@ alias trp toggle_right_prompt
 
 function fish_prompt -d "Write out the left prompt of the syl20bnr theme"
   set -l last_status $status
+  set -l basedir_name (basename (prompt_pwd))
 
   # Init colors
 
@@ -66,18 +71,22 @@ function fish_prompt -d "Write out the left prompt of the syl20bnr theme"
   # git
   # If inside a git repo then the pwd segment is replaced by the git
   # segment.
-  # The git segment format is XI:Y@Z where:
-  #   X is git:
-  #   I is the information about the current repo state
+  # The git segment format is X:YI@Z:P(N) where:
+  #   X is git
   #   Y is the current branch
+  #   I is the information about the current repo state
   #   Z is the name of the repo
+  #   P is the current working path basename (name of the current directory)
+  #   C is the depth of the path starting from base directory of the repo
   # The displayed information is:
   #   Dirtiness is indicated by a little dot after the branch name.
   #   Unpushed commits are indicated with up arrows
   #   The number of unpushed commits is indicated right after the up arrows
+  # If P = Z then P(C) is not displayed
   set -l ps_git ""
   set -l git_branch_name (__syl20bnr_git_branch_name)
   if test -n "$git_branch_name"
+    set -l git_repo_name (__syl20bnr_git_repo_name)
     set -l git_info ""
     if test -n (__syl20bnr_is_git_ahead)
       set git_info $colbgreen"↑↑↑"$colnormal"("(__syl20bnr_unpushed_commit_count)")"
@@ -85,14 +94,20 @@ function fish_prompt -d "Write out the left prompt of the syl20bnr theme"
     if test -n (__syl20bnr_is_git_dirty)
       set git_info $git_info$colbred"·"
     end
-    set ps_git $colbwhite"git:"$colbcyan$git_branch_name$git_info$colnormal"@"$colbred(__syl20bnr_git_repo_name)
+    set ps_git $colbwhite"git:"$colbcyan$git_branch_name$git_info$colnormal"@"$colbred$git_repo_name
+    if test "$basedir_name" != "$git_repo_name"
+        set -l basedir_depth (echo (__syl20bnr_git_repo_base) | cut -d "/" --output-delimiter=" " -f 1- | wc -w)
+        set -l depth (echo (pwd) | cut -d "/" --output-delimiter=" " -f 1- | wc -w)
+        set depth (math $depth - $basedir_depth)
+        set ps_git $ps_git$colbwhite":"$colbgreen$basedir_name$colnormal"("$depth")"
+    end
   end
 
   # pwd
-  # The pwd segment format is X:Y(Z) where:
-  #   X is either home: or /:
-  #   Y is the current working path basename (name of the current directory)
-  #   Z is the depth of the path starting from X
+  # The pwd segment format is X:P(C) where:
+  #   X is either home or /
+  #   P is the current working path basename (name of the current directory)
+  #   C is the depth of the path starting from X
   # If the pwd is home then the prompt format is simplified to home:~ without
   # the depth.
   set -l ps_pwd ""
@@ -104,7 +119,7 @@ function fish_prompt -d "Write out the left prompt of the syl20bnr theme"
     else
       set ps_pwd $colbwhite"/:"
     end
-    set ps_pwd $ps_pwd$colgreen(basename (prompt_pwd))
+    set ps_pwd $ps_pwd$colgreen$basedir_name
     if test (echo (pwd)) != ~
       if test -n "$in_home"
         set depth (math $depth - 2)
