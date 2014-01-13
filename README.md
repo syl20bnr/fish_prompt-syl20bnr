@@ -1,13 +1,13 @@
-# fish_prompt-syl20bnr
+# syl20bnr theme
 
-My personal compact yet complete (almost :-)) fish prompt.
+Sylvain Benner personal, compact yet complete (almost :-)) fish prompt.
 
 ## Segments
 
 ### pwd: Compact current working directory
 
 The `pwd` segment format is `X:Y(Z)` where:
-- `X` is either `home:` or `/:`
+- `X` is either `home` or `/`
 - `Y` is the current working path base name (name of the current directory)
 - `Z` is the depth of the path starting from `X`
 
@@ -30,10 +30,10 @@ Outside the home directory:
 If the current directory is a [git][git] repository then the `pwd` segment is
 replaced by the `git` segment (I should know where I am).
 
-The `git` segment format is `XI:Y@Z` where:
-- `X` is `git:`
-- `I` is the information about the current repository state
+The `git` segment format is `X:YI@Z` where:
+- `X` is `git`
 - `Y` is the current branch name
+- `I` is the information about the current repository state
 - `Z` is the name of the repository
 
 The displayed information `I` is:
