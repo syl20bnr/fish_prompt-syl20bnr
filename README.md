@@ -11,8 +11,8 @@ The `pwd` segment format is `X:P(N)` where:
 - `P` is the current working path base name (name of the current directory)
 - `N` is the depth of the path starting from `X`
 
-If the `pwd` is `home` then the prompt format is simplified to `home:~` without
-the depth.
+If the `pwd` is `home` or `/` then the prompt format is simplified to `home`
+and `/` respectively without the current directory and depth.
 
 #### Examples
 
