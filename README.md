@@ -57,15 +57,15 @@ See the `[n]` in the previous screenshots.
 ### end
 
 The color of the end of the prompt depends on the `$status` value of the
-last executed command. It is `green` or `red` depending on success or failure
-of the last command.
+last executed command. It is `green` or `red` depending on the success or
+failure of the last command.
 
-Since I often use [ranger][ranger] and use its `shift+s` key binding to bring
-a new shell session, there is discreet indicator when the parent process of the
-current shell is a `ranger` process. In this case the end of the prompt is
-written twice.
-With this indicator I can quickly see if I can `ctrl+d` to end the the current
-shell process and go back to the `ranger` process.
+Since I often use [ranger][ranger] and its `shift+s` key binding to bring
+a new child shell session, there is a discreet indicator when the parent
+process of the current shell is a `ranger` process: the end of the prompt
+is written twice (ie: `>>` instead of just `>`).
+With this indicator I quickly see if I can `ctrl+d` to end the current shell
+process and go back to the parent `ranger` process.
 
 ### where
 
