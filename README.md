@@ -6,10 +6,10 @@ Sylvain Benner personal, compact yet complete (almost :-)) fish prompt.
 
 ### pwd: Compact current working directory
 
-The `pwd` segment format is `X:Y(Z)` where:
+The `pwd` segment format is `X:P(N)` where:
 - `X` is either `home` or `/`
-- `Y` is the current working path base name (name of the current directory)
-- `Z` is the depth of the path starting from `X`
+- `P` is the current working path base name (name of the current directory)
+- `N` is the depth of the path starting from `X`
 
 If the `pwd` is `home` then the prompt format is simplified to `home:~` without
 the depth.
@@ -30,16 +30,20 @@ Outside the home directory:
 If the current directory is a [git][git] repository then the `pwd` segment is
 replaced by the `git` segment (I should know where I am).
 
-The `git` segment format is `X:YI@Z` where:
+The `git` segment format is `X:YI@Z:P(N)` where:
 - `X` is `git`
 - `Y` is the current branch name
 - `I` is the information about the current repository state
 - `Z` is the name of the repository
+- `P` is the current working path basename (name of the current directory)
+If `P` = `Z` then `P(N)` is not displayed
+- `N` is the depth of the path starting from base directory of the repository
 
 The displayed information `I` is:
 - Dirtiness is indicated by a little dot after the branch name.
 - Unpushed commits are indicated with up arrows
 - The number of unpushed commits is indicated right after the up arrows
+
 
 #### Examples
 
@@ -48,6 +52,9 @@ Dirty:
 
 Unpushed commits:
 ![unpushed_commits](http://raw2.github.com/syl20bnr/fish_prompt-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-ucommit-count.png)
+
+In a sub-directory of the repository:
+![repo_subdir](http://raw2.github.com/syl20bnr/fish_prompt-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-subdir.png)
 
 ### vi-mode
 
