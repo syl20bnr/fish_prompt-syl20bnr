@@ -56,18 +56,21 @@ function fish_prompt -d "Write out the left prompt of the syl20bnr theme"
   set -l colbred   (set_color -o red)
   set -l colwhite  (set_color white)
   set -l colbwhite  (set_color -o white)
-
+  
   # Segments
-
+  
   # git
   # If inside a git repo then the pwd segment is replaced by the git
-  # information.
-  # The git segment format is X:Y@Z where:
+  # segment.
+  # The git segment format is XI:Y@Z where:
   #   X is git:
+  #   I is the information about the current repo state
   #   Y is the current branch
   #   Z is the name of the repo
-  # Dirtyness is indicated by a little dot after the branch name.
-  # Unpushed commits are indicated with up arrows
+  # The displayed information is:
+  #   Dirtiness is indicated by a little dot after the branch name.
+  #   Unpushed commits are indicated with up arrows
+  #   The number of unpushed commits is indicated right after the up arrows
   set -l ps_git ""
   set -l git_branch_name (__syl20bnr_git_branch_name)
   if test -n "$git_branch_name"
@@ -105,7 +108,7 @@ function fish_prompt -d "Write out the left prompt of the syl20bnr theme"
       set ps_pwd $ps_pwd$colnormal"("$depth")"
     end
   end
-
+      
   # vi mode
   # If vi_mode plugin is activated then print the vi mode in the prompt.
   set -l ps_vi ""
@@ -118,8 +121,8 @@ function fish_prompt -d "Write out the left prompt of the syl20bnr theme"
   # last executed command. It is green or red depending on the last command
   # success or failure respectively.
   # Since I often use ranger and use its 'shift+s' key binding to bring a shell
-  # session, there is discreet indicator when the parent process on the current
-  # shell pid is a ranger process. In this case the end of prompte is written
+  # session, there is discreet indicator when the parent process of the current
+  # shell pid is a ranger process. In this case the end of the prompt is written
   # twice.
   # With this indicator I can quickly remember that I can "ctrl+d" to end the
   # the current shell process and get back to the ranger process.
@@ -151,7 +154,7 @@ function fish_right_prompt -d "Write out the right prompt of the syl20bnr theme"
   #   X is the username
   #   Y is the hostname
   set -l ps_where $colnormal(whoami)@(hostname|cut -d . -f 1)
-
+  
   # Right Prompt
 
   if test $__syl20bnr_display_rprompt -eq 1
