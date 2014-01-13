@@ -56,9 +56,9 @@ function fish_prompt -d "Write out the left prompt of the syl20bnr theme"
   set -l colbred   (set_color -o red)
   set -l colwhite  (set_color white)
   set -l colbwhite  (set_color -o white)
-  
+
   # Segments
-  
+
   # git
   # If inside a git repo then the pwd segment is replaced by the git
   # information.
@@ -105,7 +105,7 @@ function fish_prompt -d "Write out the left prompt of the syl20bnr theme"
       set ps_pwd $ps_pwd$colnormal"("$depth")"
     end
   end
-      
+
   # vi mode
   # If vi_mode plugin is activated then print the vi mode in the prompt.
   set -l ps_vi ""
@@ -151,7 +151,7 @@ function fish_right_prompt -d "Write out the right prompt of the syl20bnr theme"
   #   X is the username
   #   Y is the hostname
   set -l ps_where $colnormal(whoami)@(hostname|cut -d . -f 1)
-  
+
   # Right Prompt
 
   if test $__syl20bnr_display_rprompt -eq 1
