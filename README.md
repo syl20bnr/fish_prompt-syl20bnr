@@ -17,7 +17,7 @@ and `/` respectively without the current directory and depth.
 #### Examples
 
 In home directory:
-![home](http://raw2.github.com/syl20bnr/fish_prompt-syl20bnr/master/screenshots/prompt_fish-syl20bnr-home-ranger.png)
+![home](http://raw2.github.com/syl20bnr/fish_prompt-syl20bnr/master/screenshots/prompt_fish-syl20bnr-home2.png)
 
 Inside a directory in home:
 ![inside_home](http://raw2.github.com/syl20bnr/fish_prompt-syl20bnr/master/screenshots/prompt_fish-syl20bnr-inside-home.png)
