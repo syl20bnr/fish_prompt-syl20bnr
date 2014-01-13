@@ -24,6 +24,10 @@ function __syl20bnr_is_git_dirty
   echo (command git status -s --ignore-submodules=dirty ^/dev/null)
 end
 
+function __syl20bnr_is_git_ahead
+  echo (command git status -s -b ^/dev/null | grep ahead)
+end
+
 # ----------------------------------------------------------------------------
 # Aliases
 # ----------------------------------------------------------------------------
@@ -58,15 +62,19 @@ function fish_prompt -d "Write out the left prompt of the syl20bnr theme"
   #   X is git:
   #   Y is the current branch
   #   Z is the name of the repo
-  # Dirtyness is indicated by a little dot after the branch name
+  # Dirtyness is indicated by a little dot after the branch name.
+  # Unpushed commits are indicated with up arrows
   set -l ps_git ""
   set -l git_branch_name (__syl20bnr_git_branch_name)
   if test -n "$git_branch_name"
-    set -l dirty ""
-    if test -n (__syl20bnr_is_git_dirty)
-      set dirty $colbred"·"
+    set -l git_info ""
+    if test -n (__syl20bnr_is_git_ahead)
+      set git_info $colbgreen"↑↑↑"
     end
-    set ps_git $colbwhite"git:"$colbcyan$git_branch_name$dirty$colnormal"@"$colbred(basename (prompt_pwd))
+    if test -n (__syl20bnr_is_git_dirty)
+      set git_info $git_info$colbred"·"
+    end
+    set ps_git $colbwhite"git:"$colbcyan$git_branch_name$git_info$colnormal"@"$colbred(basename (prompt_pwd))
   end
 
   # pwd
