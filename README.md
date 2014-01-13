@@ -2,6 +2,18 @@
 
 Sylvain Benner personal, compact (hmmm...) yet complete (almost :-)) oh-my-fish theme.
 
+**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+
+- [Segments](#segments)
+	- [pwd: Compact current working directory](#pwd-compact-current-working-directory)
+		- [Examples](#examples)
+	- [git](#git)
+		- [Examples](#examples-1)
+	- [vi-mode](#vi-mode)
+	- [end](#end)
+	- [where](#where)
+- [Functions](#functions)
+
 ## Segments
 
 ### pwd: Compact current working directory
