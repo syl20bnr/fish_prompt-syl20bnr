@@ -13,6 +13,7 @@ Sylvain Benner personal, compact (hmmm...) yet complete (almost :-)) oh-my-fish 
 	- [end](#end)
 	- [where](#where)
 - [Functions](#functions)
+- [Cygwin compatibility](#cygwin-compatibility)
 
 ## Segments
 
