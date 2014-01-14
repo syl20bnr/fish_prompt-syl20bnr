@@ -30,13 +30,13 @@ and `/` respectively without the current directory and depth.
 #### Examples
 
 In home directory:
-![home](http://raw2.github.com/syl20bnr/fish_prompt-syl20bnr/master/screenshots/prompt_fish-syl20bnr-home2.png)
+![home](http://raw2.github.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-home2.png)
 
 Inside a directory in home:
-![inside_home](http://raw2.github.com/syl20bnr/fish_prompt-syl20bnr/master/screenshots/prompt_fish-syl20bnr-inside-home.png)
+![inside_home](http://raw2.github.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-inside-home.png)
 
 Outside the home directory:
-![outside_home](http://raw2.github.com/syl20bnr/fish_prompt-syl20bnr/master/screenshots/prompt_fish-syl20bnr-outside-home.png)
+![outside_home](http://raw2.github.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-outside-home.png)
 
 ### git
 
@@ -61,13 +61,13 @@ The displayed information `I` is:
 #### Examples
 
 Dirty:
-![dirty](http://raw2.github.com/syl20bnr/fish_prompt-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-dirty.png)
+![dirty](http://raw2.github.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-dirty.png)
 
 Unpushed commits:
-![unpushed_commits](http://raw2.github.com/syl20bnr/fish_prompt-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-ucommit-count.png)
+![unpushed_commits](http://raw2.github.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-ucommit-count.png)
 
 In a sub-directory of the repository:
-![repo_subdir](http://raw2.github.com/syl20bnr/fish_prompt-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-subdir.png)
+![repo_subdir](http://raw2.github.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-subdir.png)
 
 ### vi-mode
 
