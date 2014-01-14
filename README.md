@@ -99,5 +99,14 @@ This segment is displayed in the right prompt.
 Some functions come with the theme:
 - `toggle_right_prompt` will... toggle the right prompt! (alias: `trp`)
 
+## Cygwin compatibility
+
+In order to make this theme work on [Cygwin][cygwin], make sure to install the following
+packages:
+- `bc` for `math` fish function
+- `psmisc` for `pstree`
+- `git` if you want to use the `git` segment.
+
 [git]: http://git-scm.com/
 [ranger]: http://ranger.nongnu.org/
+[cygwin]: http://cygwin.com/
