@@ -98,7 +98,7 @@ function fish_prompt -d "Write out the left prompt of the syl20bnr theme"
       set git_info "$git_info""["$colbred"↓"(__syl20bnr_unmerged_commit_count $git_status)$colnormal"]"
     end
     set -l colbranch $colbgreen
-    if echo $git_status | grep "??" > /dev/null
+    if echo $git_status | grep -E "\s\?\?\s|\sM\s|\sD\s" > /dev/null
       set colbranch $colbred
     end
     set ps_git $colbwhite"git:"$colbcyan$git_branch_name$git_info$colnormal"@"$colbranch$git_repo_name
