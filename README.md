@@ -1,8 +1,9 @@
 # syl20bnr theme
 
 A semi-compact oh-my-fish theme with [nice support for git](#git).
+
 The theme has been tested on `Ubuntu 14.04 (Trusty)` and `Mac OS X 10.10 (Yosemite)`.
-It is also compatible with `Cygwin` with the appropriate packages.
+It is also compatible with [Cygwin with the appropriate packages](#cygwin-compatibility).
 
 **Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
