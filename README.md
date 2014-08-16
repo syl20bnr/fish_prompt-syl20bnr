@@ -53,8 +53,8 @@ If `P` = `Z` then `P(N)` is not displayed
 - `N` is the depth of the path starting from base directory of the repository
 
 The displayed information `I` is:
-- Unpushed commits are indicated with up arrows
-- The number of unpushed commits is indicated right after the up arrows
+- Unpushed commits are indicated with an up arrow like this `[↑1]`
+- Unmerged fetched commits are indicated with a down arrow like this `[↓1]`
 
 **Note:** The dirtiness of the current branch is indicated by its color:
 - red: it is dirty
