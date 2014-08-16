@@ -1,6 +1,6 @@
 # syl20bnr theme
 
-Sylvain Benner personal, compact (hmmm...) yet complete (almost :-)) oh-my-fish theme.
+A most of the time compact oh-my-fish theme.
 
 **Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
@@ -46,21 +46,23 @@ replaced by the `git` segment (I should know where I am).
 The `git` segment format is `X:YI@Z:P(N)` where:
 - `X` is `git`
 - `Y` is the current branch name
-- `I` is the information about the current repository state
+- `I` is some information about the current repository state
 - `Z` is the name of the repository
 - `P` is the current working path basename (name of the current directory)
 If `P` = `Z` then `P(N)` is not displayed
 - `N` is the depth of the path starting from base directory of the repository
 
 The displayed information `I` is:
-- Dirtiness is indicated by a little dot after the branch name.
 - Unpushed commits are indicated with up arrows
 - The number of unpushed commits is indicated right after the up arrows
 
+**Note:** The dirtiness of the current branch is indicated by its color:
+- red: it is dirty
+- green: it is up to date
 
 #### Examples
 
-Dirty:
+Dirty ():
 ![dirty](http://raw2.github.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-dirty.png)
 
 Unpushed commits:
