@@ -60,16 +60,25 @@ The displayed information `I` is:
 - red: it is dirty
 - green: it is up to date
 
+**Note:** The unmerged commits count appears only if the changes in the
+upstream branch as been fetched.
+
 #### Examples
 
-Dirty ():
-![dirty](http://raw2.github.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-dirty.png)
+Dirty (changes not committed):
+![dirty](http://raw2.github.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-dirty2.png)
 
 Unpushed commits:
-![unpushed_commits](http://raw2.github.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-ucommit-count.png)
+![unpushed_commits](http://raw2.github.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-unpushed.png)
+
+Unmerged commits:
+![unmerged_commits](http://raw2.github.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-unmerged.png)
+
+Both unpushed and unmerged commits:
+![unmerged_commits](http://raw2.github.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-unpushed_unmerged.png)
 
 In a sub-directory of the repository:
-![repo_subdir](http://raw2.github.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-subdir.png)
+![repo_subdir](http://raw2.github.com/syl20bnr/oh-my-fish-theme-syl20bnr/master/screenshots/prompt_fish-syl20bnr-git-subdir2.png)
 
 ### vi-mode
 
