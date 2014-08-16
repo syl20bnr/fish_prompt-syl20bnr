@@ -106,7 +106,7 @@ function fish_prompt -d "Write out the left prompt of the syl20bnr theme"
         set -l basedir_depth (echo (__syl20bnr_git_repo_base) | sed "s/\// /g" | wc -w)
         set -l depth (echo (pwd) | sed "s/\// /g" | wc -w)
         set depth (math $depth - $basedir_depth)
-        set ps_git $ps_git$colbwhite":"$colbgreen$basedir_name$colnormal"("$depth")"
+        set ps_git $ps_git$colnormal":"$colbwhite$basedir_name$colnormal"("$depth")"
     end
   end
 
