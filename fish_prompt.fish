@@ -187,9 +187,15 @@ function fish_prompt -d "Write out the left prompt of the syl20bnr theme"
     set ps_end $colnormal$colgreen$ps_end
   end
 
+  # Virtualenv name
+  set -l ps_venv ""
+  if test -n "$VIRTUAL_ENV"
+    set ps_venv "(" (basename "$VIRTUAL_ENV") ")"
+  end
+
   # Left Prompt
 
-  echo -n -s $ps_git $ps_pwd $ps_vi $ps_git_dirty $ps_end ' '
+  echo -n -s $ps_venv $ps_git $ps_pwd $ps_vi $ps_git_dirty $ps_end ' '
 end
 
 
